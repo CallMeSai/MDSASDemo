@@ -1,0 +1,157 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-left">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4">Mdsas Code Demo</h1>
+            <h4>Tasks</h4>
+            <ul>
+                <li> Overview and solution layout</li>
+                <li> Consume the IValidation interface and create a validator to validate the unique number field.   </li>
+                <li> Implement the Register page to save to the SQL database</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p> Is 10 numeric digits in length. The tenth digit is a check digit used to confirm its validity. The check digit is validated using the Modulus 11 algorithm and the use of this algorithm is mandatory. </p>
+
+            <strong >Step 1</strong>
+            Multiply each of the first nine digits by a weighting factor as follows:
+            <div class="col-lg-6">
+                <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Digit Position (starting from the left)</th>
+                            <th>Factor</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr >
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <p>10</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>2</p>
+                            </td>
+                            <td>
+                                <p>9</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>3</p>
+                            </td>
+                            <td>
+                                <p>8</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>4</p>
+                            </td>
+                            <td>
+                                <p>7</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>5</p>
+                            </td>
+                            <td>
+                                <p>6</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>6</p>
+                            </td>
+                            <td>
+                                <p>5</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>7</p>
+                            </td>
+                            <td>
+                                <p>4</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>8</p>
+                            </td>
+                            <td>
+                                <p>3</p>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <p>9</p>
+                            </td>
+                            <td>
+                                <p>2</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <strong >Step 2</strong>
+                Add the results of each multiplication together.
+            </p>
+            <p>
+                <strong >Step 3</strong>
+                Divide the total by 11 and establish the remainder.
+            </p>
+            <p>
+                <strong >Step 4</strong>
+                Subtract the remainder from 11 to give the check digit.
+            </p>
+            <p>
+                If the result is 11 then a check digit of 0 is used. If the result is 10 then the number is invalid and not used.
+            </p>
+            <p>
+                <strong >Step 5</strong>
+                Check the remainder matches the check digit. If it does not, the number  is invalid.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 pt-3">
+            <h3>Test data</h3>
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Valid?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success"><td>7980018931</td><td>true </td></tr>
+                    <tr class="table-success"><td>9999999999</td><td>true </td></tr>
+                    <tr class="table-danger"><td>1234567890</td><td>false</td></tr>
+                    <tr class="table-danger"><td>12345aa890</td><td>false</td></tr>
+                    <tr class="table-success"><td>6469207170</td><td>true </td></tr>
+                    <tr class="table-danger"><td>4625557164</td><td>false</td></tr>
+                    <tr class="table-danger"><td>4610827452</td><td>false</td></tr>
+                    <tr class="table-danger"><td>6325382653</td><td>false</td></tr>
+                    <tr class="table-danger"><td>6325382651</td><td>false</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

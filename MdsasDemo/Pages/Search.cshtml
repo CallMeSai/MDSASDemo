@@ -1,0 +1,27 @@
+﻿@page
+@model MdsasDemo.Pages.SearchModel
+@{
+}
+<form class="wizard-form steps-validation" method="post" data-fouc>
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <input type="text" asp-for="SearchPatient.UniqueNumber" id="registerPatientUniqueNumber" class="form-control" placeholder="Unique Number" data-cy="patient-register-uniquenumber">
+        <button type="submit" class="btn btn-primary" data-cy="patient-save-card-button">Search<i class="icon-database-check mr-2"></i></button>
+    </fieldset>
+
+</form>
+
+<table>
+    <tr>
+        @foreach(var key in Model.ModelState.Keys){
+            <th>@key</th>
+        }
+    </tr>
+    <tr>
+        @foreach(var val in Model.ModelState.Values){
+            <td>
+                @val.RawValue.ToString()
+            </td>
+        }
+    </tr>
+</table>
